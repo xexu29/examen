@@ -187,6 +187,7 @@
             btnVeure.TabIndex = 14;
             btnVeure.Text = "Veure Tiquet";
             btnVeure.UseVisualStyleBackColor = true;
+            btnVeure.Click += btnVeure_Click;
             // 
             // Form1
             // 

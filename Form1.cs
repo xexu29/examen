@@ -15,7 +15,7 @@ namespace examen
         {
             if (txtNom.Text != "" || dtpData.Value.Date >= DateTime.Today || txtPreu.Text != "" || cmbZona.SelectedItem != null)
             {
-                int precio=int.Parse(txtPreu.Text);
+                int precio = int.Parse(txtPreu.Text);
                 if (precio >= 20 && precio <= 500)
                 {
                     if (cmbTipus.Text.Equals("General"))
@@ -29,7 +29,7 @@ namespace examen
                         EntradaVIP tiquets = new EntradaVIP(txtNom.Text, dtpData.Value, txtPreu.Text, cmbZona.SelectedText, txtVIP.Text);
                         entradas.Add(tiquets);
                         listBox1.Items.Add(txtNom.Text);
-                       
+
 
                     }
                     txtNom.Clear();
@@ -40,7 +40,7 @@ namespace examen
                 {
                     MessageBox.Show("Precio minima 20€");
                 }
-                
+
             }
             else
             {
@@ -90,6 +90,29 @@ namespace examen
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnVeure_Click(object sender, EventArgs e)
+        {
+            Entrada mostrarTiquet = entradas[listBox1.SelectedIndex];
+            txtNom.Text = mostrarTiquet.NomAssistent;
+            dtpData.Value = mostrarTiquet.DataConcert;
+            txtPreu.Text=mostrarTiquet.Preu;
+            cmbZona.Text = mostrarTiquet.Zona;
+            if (entradas[listBox1.SelectedIndex] is EntradaVIP)
+            {
+                lblVIP.Visible = true;
+                txtVIP.Visible = true;
+                EntradaVIP prueba =(EntradaVIP)entradas[listBox1.SelectedIndex];
+                txtVIP.Text= prueba.ToString();
+            }
+            else
+            {
+                lblVIP.Visible = false;
+                txtVIP.Visible = false;
+                Entrada prueba =(Entrada)entradas[listBox1.SelectedIndex];
+
+            }
         }
     }
 }
