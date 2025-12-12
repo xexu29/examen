@@ -29,9 +29,12 @@ namespace examen
                         EntradaVIP tiquets = new EntradaVIP(txtNom.Text, dtpData.Value, txtPreu.Text, cmbZona.SelectedText, txtVIP.Text);
                         entradas.Add(tiquets);
                         listBox1.Items.Add(txtNom.Text);
-
+                       
 
                     }
+                    txtNom.Clear();
+                    txtPreu.Clear();
+                    txtVIP.Clear();
                 }
                 else
                 {
